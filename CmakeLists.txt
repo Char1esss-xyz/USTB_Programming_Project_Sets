@@ -1,0 +1,62 @@
+# 1. 项目基本设置
+#----------------------------------------------------
+# 设置CMake要求的最低版本
+cmake_minimum_required(VERSION 3.14)
+
+# (推荐) 设置此策略以避免关于文件时间戳的警告
+cmake_policy(SET CMP0135 NEW)
+
+# 定义项目名称、版本和语言
+project(StockProject VERSION 1.0 LANGUAGES CXX)
+
+# 设置我们想使用的C++标准 (例如 C++17)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+
+# 2. 创建核心功能库 (stock_lib)
+#----------------------------------------------------
+# 将 src/stock.cpp 编译成一个名为 "stock_lib" 的库。
+# 这样做的好处是代码模块化，可以被主程序和测试程序同时使用。
+add_library(stock_lib src/stock.cpp)
+
+# 声明 stock_lib 的头文件在 "include" 目录下。
+# PUBLIC 关键字意味着任何链接到 stock_lib 的目标（如 main_app 和 runTests）
+# 都会自动知道这个头文件目录，从而能找到 #include "stock.h"。
+target_include_directories(stock_lib PUBLIC include)
+
+
+# 3. 创建主程序可执行文件 (main_app)
+#----------------------------------------------------
+# 使用 src/main.cpp 创建一个名为 "main_app" 的可执行文件。
+add_executable(main_app ./main.cpp)
+
+# 链接！把 stock_lib 库链接到 main_app，这样 main.cpp 就能使用
+# stock.h 中声明、stock.cpp 中实现的函数/类了。
+target_link_libraries(main_app PRIVATE stock_lib)
+
+
+# 4. 使用 Google Test 配置测试
+#----------------------------------------------------
+# 开启 CMake 的测试功能，以便与 CTest 和 VS Code 测试浏览器集成
+enable_testing()
+
+# 使用 FetchContent 模块自动下载和配置 Google Test
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip
+)
+# 这将在构建目录中下载并配置 GTest
+FetchContent_MakeAvailable(googletest)
+
+# 使用 tests/stock_gtest.cpp 创建一个名为 "runTests" 的可执行文件
+add_executable(runTests tests/stock_gtest.cpp)
+
+# 将我们的库和 Google Test 链接到测试程序。
+# GTest::gtest_main 包含了运行测试所需的 main 函数，我们无需自己写。
+target_link_libraries(runTests PRIVATE stock_lib GTest::gtest_main)
+
+# 让 CTest 和 VS Code 的测试浏览器自动发现所有用 TEST() 宏定义的测试用例
+include(GoogleTest)
+gtest_discover_tests(runTests)
