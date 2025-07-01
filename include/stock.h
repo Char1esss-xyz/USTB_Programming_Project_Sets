@@ -1,5 +1,7 @@
-#include <string>
+#ifndef STOCK_H
+#define STOCK_H
 
+#include <string>
 class stock
 {
 private:
@@ -15,3 +17,5 @@ public:
     double getAmount();
     double getPrice();
 };
+
+#endif

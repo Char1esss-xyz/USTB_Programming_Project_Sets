@@ -59,7 +59,7 @@ add_executable(runTests tests/stock_gtest.cpp)
 
 # 将我们的库和 Google Test 链接到测试程序。
 # GTest::gtest_main 包含了运行测试所需的 main 函数，我们无需自己写。
-target_link_libraries(runTests PRIVATE stock_lib GTest::gtest_main)
+target_link_libraries(runTests PRIVATE stock_lib cer_lib GTest::gtest_main)
 
 # 让 CTest 和 VS Code 的测试浏览器自动发现所有用 TEST() 宏定义的测试用例
 include(GoogleTest)
