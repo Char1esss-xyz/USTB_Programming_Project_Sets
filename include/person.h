@@ -17,8 +17,9 @@ public:
     person(std::string p_name);
     void createStock(char p_category, std::string p_currency, double p_amount, double p_price);
     std::string getName();
-    double queryPerson(std::string p_currency);
     void pushCer(std::string p_src, std::string p_des, double p_rate);
+    double queryPerson(std::string p_currency);
+    double queryStock(char p_category, std::string p_currency);
 };
 
 #endif

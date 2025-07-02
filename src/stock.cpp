@@ -8,6 +8,11 @@ stock::stock(char p_category, std::string p_currency, double p_amount, double p_
     price = p_price;
 }
 
+void stock::addAmount(double p_amount)
+{
+    amount += p_amount;
+}
+
 char stock::getCategory()
 {
     return category;

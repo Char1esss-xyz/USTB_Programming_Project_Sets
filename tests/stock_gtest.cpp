@@ -4,7 +4,6 @@
 #include "../include/cer.h"
 #include "../include/person.h"
 
-
 TEST(stockTest, testCreatingStock)
 {
     stock stk('A', "CNY", 1000, 25);
@@ -18,7 +17,7 @@ TEST(cerTest, testCreatingCer)
 {
     cer CTJ("CNY", "JPY", 22);
 
-    ASSERT_STREQ((CTJ.getSrc()).c_str(), "CNY");  
+    ASSERT_STREQ((CTJ.getSrc()).c_str(), "CNY");
     ASSERT_STREQ((CTJ.getDes()).c_str(), "JPY");
     ASSERT_EQ(CTJ.getRate(), 22);
 }
@@ -33,8 +32,25 @@ TEST(personTest, testQueryPerson)
 {
     std::string name = "ZhangSan";
     person zs(name);
-    zs.createStock('A' , "CNY", 100.0, 10.0);
+    zs.createStock('A', "CNY", 100.0, 10.0);
     zs.createStock('B', "JPY", 220.0, 10.0);
-    zs.pushCer("CNY", "JPY", 22);
+    zs.pushCer("CNY", "JPY", 22.0);
     ASSERT_EQ(zs.queryPerson("CNY"), 1100.0);
+}
+
+TEST(personTest, testAddAmount)
+{
+    person zs("ZhangSan");
+    zs.createStock('A', "CNY", 100.0, 10.0);
+    zs.createStock('A', "CNY", 100.0, 10.0);
+    ASSERT_EQ(zs.queryPerson("CNY"), 2000.0);
+}
+
+TEST(personTest, testQueryStock)
+{
+    person zs("ZhangSan");
+    zs.createStock('A', "CNY", 100.0, 10.0);
+    zs.createStock('A', "JPY", 220.0, 10.0);
+    zs.pushCer("CNY", "JPY", 22.0);
+    ASSERT_EQ(zs.queryStock('A', "CNY"), 1100.0);
 }

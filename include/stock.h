@@ -12,6 +12,7 @@ private:
 
 public:
     stock(char p_category, std::string p_currency, double p_amount, double p_price);
+    void addAmount(double p_amount);
     char getCategory();
     std::string getCurrency();
     double getAmount();
