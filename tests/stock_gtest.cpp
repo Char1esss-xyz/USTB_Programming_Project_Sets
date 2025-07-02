@@ -2,6 +2,7 @@
 #include <string>
 #include "../include/stock.h"
 #include "../include/cer.h"
+#include "../include/person.h"
 
 
 TEST(stockTest, testCreatingStock)
@@ -15,9 +16,7 @@ TEST(stockTest, testCreatingStock)
 
 TEST(cerTest, testCreatingCer)
 {
-    std::string cny = "CNY";
-    std::string jpy = "JPY";
-    cer CTJ(cny, jpy, 22);
+    cer CTJ("CNY", "JPY", 22);
 
     ASSERT_STREQ((CTJ.getSrc()).c_str(), "CNY");  
     ASSERT_STREQ((CTJ.getDes()).c_str(), "JPY");
@@ -26,9 +25,16 @@ TEST(cerTest, testCreatingCer)
 
 TEST(cerTest, testExchange)
 {
-    std::string cny = "CNY";
-    std::string jpy = "JPY";
-    cer CTJ(cny, jpy, 22);
+    cer CTJ("CNY", "JPY", 22);
+    ASSERT_EQ(CTJ.exchange("JPY", "CNY", 220), 10);
+}
 
-    ASSERT_EQ(CTJ.exchange(jpy, cny, 220), 10);
+TEST(personTest, testQueryPerson)
+{
+    std::string name = "ZhangSan";
+    person zs(name);
+    zs.createStock('A' , "CNY", 100.0, 10.0);
+    zs.createStock('B', "JPY", 220.0, 10.0);
+    zs.pushCer("CNY", "JPY", 22);
+    ASSERT_EQ(zs.queryPerson("CNY"), 1100.0);
 }

@@ -20,13 +20,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # 这样做的好处是代码模块化，可以被主程序和测试程序同时使用。
 add_library(stock_lib src/stock.cpp)
 add_library(cer_lib src/cer.cpp)
+add_library(person_lib src/person.cpp)
 
 # 声明 stock_lib 的头文件在 "include" 目录下。
 # PUBLIC 关键字意味着任何链接到 stock_lib 的目标（如 main_app 和 runTests）
 # 都会自动知道这个头文件目录，从而能找到 #include "stock.h"。
 target_include_directories(stock_lib PUBLIC include)
 target_include_directories(cer_lib PUBLIC include)
-
+target_include_directories(person_lib PUBLIC include)
 
 
 # 3. 创建主程序可执行文件 (main_app)
@@ -38,6 +39,7 @@ add_executable(main_app ./main.cpp)
 # stock.h 中声明、stock.cpp 中实现的函数/类了。
 target_link_libraries(main_app PRIVATE stock_lib)
 target_link_libraries(main_app PRIVATE cer_lib)
+target_link_libraries(main_app PRIVATE person_lib)
 
 
 # 4. 使用 Google Test 配置测试
@@ -59,7 +61,7 @@ add_executable(runTests tests/stock_gtest.cpp)
 
 # 将我们的库和 Google Test 链接到测试程序。
 # GTest::gtest_main 包含了运行测试所需的 main 函数，我们无需自己写。
-target_link_libraries(runTests PRIVATE stock_lib cer_lib GTest::gtest_main)
+target_link_libraries(runTests PRIVATE stock_lib cer_lib person_lib GTest::gtest_main)
 
 # 让 CTest 和 VS Code 的测试浏览器自动发现所有用 TEST() 宏定义的测试用例
 include(GoogleTest)
