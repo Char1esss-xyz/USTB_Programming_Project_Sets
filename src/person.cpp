@@ -1,4 +1,6 @@
 #include "../include/person.h"
+#include "../include/stock.h"
+#include "../include/cer.h"
 #include <string>
 #include <vector>
 
@@ -66,14 +68,17 @@ double person::queryStock(char p_category, std::string p_currency)
         {
             double totalPrice = i.getAmount() * i.getPrice();
             if (i.getCurrency() == p_currency)
-                res += i.getAmount() * i.getPrice();
+            {
+                res += totalPrice;
+            }
             else
             {
                 for (auto j : cers)
                 {
-                    if (j.getSrc() == p_currency || j.getDes() == p_currency)
+                    if ((j.getSrc() == p_currency && j.getDes() == i.getCurrency()) || (j.getSrc() == i.getCurrency() && j.getDes() == p_currency))
                     {
                         res += j.exchange(i.getCurrency(), p_currency, totalPrice);
+                        break;
                     }
                 }
             }
