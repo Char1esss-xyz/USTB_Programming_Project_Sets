@@ -2,20 +2,17 @@
 #define CER_H
 
 #include <string>
+#include <map>
+#include <stdexcept>
 
 class cer
 {
-private:
-    std::string src;
-    std::string des;
-    double rate;
-
 public:
-    cer(std::string p_src, std::string p_des, double p_rate);
-    double exchange(std::string p_src, std::string p_des, int value);
-    std::string getSrc();
-    std::string getDes();
-    double getRate();
-};
+    cer(){};
+    void add_rate(std::string src, std::string des, double rate);
+    double convert(std::string src, std::string des, double value);
 
+private:
+    std::map<std::string, std::map<std::string, double>> cer_list;
+};
 #endif

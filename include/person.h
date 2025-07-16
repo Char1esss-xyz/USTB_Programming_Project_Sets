@@ -3,6 +3,8 @@
 
 #include <string>
 #include <vector>
+#include <stdexcept>
+#include <iostream>
 #include "../include/stock.h"
 #include "../include/cer.h"
 
@@ -11,7 +13,7 @@ class person
 private:
     std::string name;
     std::vector<stock> stocks;
-    static std::vector<cer> cers;
+    static cer cers;
 
 public:
     person(std::string p_name);

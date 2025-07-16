@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-std::vector<cer> person::cers;
+cer person::cers;
 
 person::person(std::string p_name)
 {
@@ -13,6 +13,8 @@ person::person(std::string p_name)
 
 void person::createStock(char p_category, std::string p_currency, double p_amount, double p_price)
 {
+    if (p_amount < 0 || p_price < 0)
+        throw std::runtime_error("error: amount and price must be positive");
     for (auto &i : stocks)
     {
         if (i.getCategory() == p_category && i.getCurrency() == p_currency)
@@ -41,13 +43,7 @@ double person::queryPerson(std::string p_currency)
         }
         else
         {
-            for (auto j : cers)
-            {
-                if (j.getSrc() == p_currency || j.getDes() == p_currency)
-                {
-                    res += j.exchange(i.getCurrency(), p_currency, totalPrice);
-                }
-            }
+            res += cers.convert(i.getCurrency(), p_currency, totalPrice);
         }
     }
     return res;
@@ -55,8 +51,7 @@ double person::queryPerson(std::string p_currency)
 
 void person::pushCer(std::string p_src, std::string p_des, double p_rate)
 {
-    cer p_cer(p_src, p_des, p_rate);
-    cers.push_back(p_cer);
+    cers.add_rate(p_src, p_des, p_rate);
 }
 
 double person::queryStock(char p_category, std::string p_currency)
@@ -73,14 +68,8 @@ double person::queryStock(char p_category, std::string p_currency)
             }
             else
             {
-                for (auto j : cers)
-                {
-                    if ((j.getSrc() == p_currency && j.getDes() == i.getCurrency()) || (j.getSrc() == i.getCurrency() && j.getDes() == p_currency))
-                    {
-                        res += j.exchange(i.getCurrency(), p_currency, totalPrice);
-                        break;
-                    }
-                }
+
+                res += cers.convert(i.getCurrency(), p_currency, totalPrice);
             }
         }
     }
