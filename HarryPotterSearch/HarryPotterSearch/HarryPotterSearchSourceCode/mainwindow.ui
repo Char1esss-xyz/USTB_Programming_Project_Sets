@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Harry Potter Search</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+   QMainWindow {
+       background-color: #FFFFFF;
+   }
+
+   QWidget {
+       font-family: &quot;Segoe UI&quot;, &quot;Arial&quot;;
+       font-size: 14px;
+       color: #000000;
+   }
+
+   /* 分组框样式 */
+   QGroupBox {
+       background-color: #FFFFFF;
+       border: 2px solid #4A90E2;
+       border-radius: 8px;
+       margin-top: 12px;
+       padding: 8px;
+   }
+
+   QGroupBox::title {
+       subcontrol-origin: margin;
+       subcontrol-position: top center;
+       background-color: #FFFFFF;
+       padding: 4px 12px;
+       border-radius: 6px;
+       color: #4A90E2;
+       font-weight: bold;
+   }
+
+   /* 输入框样式 */
+   QLineEdit {
+       background-color: #FFFFFF;
+       border: 2px solid #4A90E2;
+       border-radius: 6px;
+       padding: 4px 8px;
+       color: #000000;
+   }
+
+   QLineEdit:focus {
+       border: 2px solid #2E75B6;
+       outline: 0px;
+   }
+
+   /* 按钮样式 */
+   QPushButton {
+       background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                         stop:0 #4A90E2, stop:1 #357ABD);
+       border: 2px solid #2E75B6;
+       border-radius: 8px;
+       padding: 6px 16px;
+       color: #FFFFFF;
+       font-weight: bold;
+   }
+
+   QPushButton:hover {
+       background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                         stop:0 #5CB1F0, stop:1 #4A90E2);
+       border: 2px solid #3A85D1;
+   }
+
+   QPushButton:pressed {
+       background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                         stop:0 #357ABD, stop:1 #4A90E2);
+   }
+
+   /* 进度条样式 */
+   QProgressBar {
+       background-color: #F0F0F0;
+       border: 2px solid #4A90E2;
+       border-radius: 12px;
+       text-align: center;
+       color: #000000;
+   }
+
+   QProgressBar::chunk {
+       background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                         stop:0 #4A90E2, stop:1 #73C0F4);
+       border-radius: 10px;
+   }
+
+   /* 文本浏览器样式 */
+   QTextBrowser {
+       background-color: #FFFFFF;
+       border: 2px solid #4A90E2;
+       border-radius: 8px;
+       padding: 8px;
+       color: #000000;
+   }
+
+   /* 标签样式 */
+   .QLabel {
+       color: #000000;
+       font-weight: normal;
+   }
+
+   /* 状态栏样式 */
+   #label_Status {
+       color: #666666;
+       font-style: italic;
+       padding-left: 10px;
+   }
+
+   /* 菜单栏样式 */
+   QMenuBar {
+       background-color: #FFFFFF;
+       color: #000000;
+       border-bottom: 2px solid #E0E0E0;
+   }
+
+   QMenuBar::item:selected {
+       background-color: #E6F0FB;
+   }
+
+   /* 保持圆角效果 */
+   QLineEdit, QTextBrowser, QPushButton, QProgressBar, QGroupBox {
+       border-radius: 6px;
+   }
+   </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QGroupBox" name="groupBox_Search">
+      <property name="title">
+       <string>搜索设置</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_Search">
+       <item>
+        <widget class="QLabel" name="label_Keyword">
+         <property name="text">
+          <string>关键词：</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit">
+         <property name="maximumSize">
+          <size>
+           <width>200</width>
+           <height>30</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton">
+         <property name="text">
+          <string>开始搜索</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_Search">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Policy::Expanding</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QProgressBar" name="progressBar">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_Results">
+      <property name="title">
+       <string>搜索结果</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_Results">
+       <item>
+        <widget class="QTextBrowser" name="textBrowser">
+         <property name="openExternalLinks">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_Detail">
+         <item>
+          <widget class="QLabel" name="label_Query">
+           <property name="text">
+            <string>序号：</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEdit_2">
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>24</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_2">
+           <property name="text">
+            <string>查看详情</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_Detail">
+           <property name="orientation">
+            <enum>Qt::Orientation::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Policy::Expanding</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QTextBrowser" name="textBrowser_2">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>100</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1200</width>
+     <height>24</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

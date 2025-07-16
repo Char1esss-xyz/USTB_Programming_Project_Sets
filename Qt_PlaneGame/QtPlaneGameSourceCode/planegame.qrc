@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/again.png</file>
+        <file>images/background.jpg</file>
+        <file>images/supply.png</file>
+        <file>images/bullet1.png</file>
+        <file>images/enemy1.png</file>
+        <file>images/enemy1_down3.png</file>
+        <file>images/gameover.png</file>
+        <file>images/life.png</file>
+        <file>images/me_destroy_1.png</file>
+        <file>images/me_destroy_2.png</file>
+        <file>images/me_destroy_3.png</file>
+        <file>images/me_destroy_4.png</file>
+        <file>images/me.png</file>
+        <file>images/pause.png</file>
+        <file>images/resume.png</file>
+    </qresource>
+</RCC>

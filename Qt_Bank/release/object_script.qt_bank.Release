@@ -1,0 +1,11 @@
+release/Account.o
+release/Accumulator.o
+release/CreditAccount.o
+release/SavingsAccount.o
+release/bankusers.o
+release/date.o
+release/insidewindow.o
+release/mainwindow.o
+release/main.o
+release/moc_insidewindow.o
+release/moc_mainwindow.o

@@ -1,0 +1,15 @@
+release/bullet.o
+release/enemy.o
+release/enemyexplosion.o
+release/gameview.o
+release/main.o
+release/playerexplosion.o
+release/supply.o
+release/qrc_planegame.o
+release/qrc_qmake_qmake_qm_files.o
+release/moc_bullet.o
+release/moc_enemy.o
+release/moc_enemyexplosion.o
+release/moc_gameview.o
+release/moc_playerexplosion.o
+release/moc_supply.o
