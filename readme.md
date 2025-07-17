@@ -14,8 +14,7 @@
 
 - [Qt_PlaneGame](Qt_PlaneGame/)
 
-基于Qt 6.9.0开发的图形化应用，release为封装好的程序，可以直接在windows下运行。
-[QtPlaneGameSourceCode/images](Qt_PlaneGame/QtPlaneGameSourceCode/images/)文件夹内的图片可替换为你的背景，但如果命名不同应修改[qrc文件](Qt_PlaneGame/QtPlaneGameSourceCode/planegame.qrc)。其他信息请参考[docx文件](Qt_PlaneGame/Qt_PlaneGame.docx.docx)。
+基于Qt 6.9.0开发的图形化应用，release为封装好的程序，可以直接在windows下运行。[QtPlaneGameSourceCode/images](Qt_PlaneGame/QtPlaneGameSourceCode/images/)文件夹内的图片可替换为你的背景，但如果命名不同应修改[qrc文件](Qt_PlaneGame/QtPlaneGameSourceCode/planegame.qrc)。其他信息请参考[docx文件](Qt_PlaneGame/Qt_PlaneGame.docx.docx)。
 
 - [Qt_Bank](Qt_Bank/)
 
