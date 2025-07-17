@@ -1,0 +1,2 @@
+D:\Software\msys2\ucrt64\bin\ar.exe qc libstock_lib.a CMakeFiles/stock_lib.dir/src/stock.cpp.obj
+D:\Software\msys2\ucrt64\bin\ranlib.exe libstock_lib.a

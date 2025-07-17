@@ -1,0 +1,1 @@
+-I"D:/Files/Code/Cpp/25_Summer/stock/build/_deps/googletest-src/googlemock/include" -I"D:/Files/Code/Cpp/25_Summer/stock/build/_deps/googletest-src/googlemock" -isystem "D:/Files/Code/Cpp/25_Summer/stock/build/_deps/googletest-src/googletest/include" -isystem "D:/Files/Code/Cpp/25_Summer/stock/build/_deps/googletest-src/googletest"

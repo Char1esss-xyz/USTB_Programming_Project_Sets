@@ -1,0 +1,2 @@
+D:\Software\msys2\ucrt64\bin\ar.exe qc libcer_lib.a CMakeFiles/cer_lib.dir/src/cer.cpp.obj
+D:\Software\msys2\ucrt64\bin\ranlib.exe libcer_lib.a

@@ -1,0 +1,8 @@
+stockTest.testCreateStock 1 0.104529
+stockTest.testAddAmount 1 0.0951538
+cerTest.testExchange 1 0.109602
+personTest.testQueryPerson 1 0.10343
+personTest.testAddPersonStock 1 0.109917
+personTest.testQueryStockWithDifferentCurrency 1 0.101497
+personTest.testQueryMutipleStocks 1 0.108431
+---
