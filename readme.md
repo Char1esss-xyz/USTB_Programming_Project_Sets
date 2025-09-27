@@ -20,6 +20,9 @@
 
 基于Qt 6.9.0开发的图形化应用，release为封装好的程序，可以直接在windows下运行。其他信息请参考[docx文件](Qt_Bank/Qt_bank.docx)。
 
+参考成绩：<br>
+![programming_practice_score](images/programming_practice_score.png)
+
 # 小学期——计算机实践
 > 不确定后面的课设要求是否相同，但应该不会太难，能通过程序设计实践的对此应该不会太头疼。
 
@@ -32,4 +35,6 @@
 
 总之不算太难，其他信息请参考[docx文件](Stock/Stock.docx)和[pptx文件](Stock/Stock.pptx)。
 
-TO BE CONTINUED...
+参考成绩：<br>
+![computer_practice](images/computer_practice.png)
+# TO BE CONTINUED...
